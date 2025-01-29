@@ -1,0 +1,267 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f1f1f1;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 80%;
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    color: #4a90e2;
+}
+
+.input-section {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-left: 0; /* Ensure alignment starts from the container */
+}
+
+/* Consolidated textarea and input styles */
+textarea, input {
+    width: 100%; /* Extend input and text areas to align perfectly */
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+    line-height: 1.5;
+    background-color: #f1f1f1;
+    resize: vertical;
+    box-sizing: border-box; /* This ensures padding is included in the width */
+}
+
+button {
+    padding: 10px;
+    background-color: #4a90e2;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Add transition for the transform */
+    width: auto;
+    margin-left: 0; /* Ensure consistent left alignment */
+}
+
+button:hover {
+    background-color: #357ab7;
+}
+
+button:active {
+    transform: translateY(2px); /* Move the button down when clicked */
+}
+
+.translation-section {
+    margin-top: 20px;
+}
+
+.chunk-box {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
+    margin-left: 0; /* Ensure alignment starts from the container */
+}
+
+.french-box, .english-box {
+    width: 100%; /* Extend boxes to align correctly */
+    padding: 10px;
+    border-radius: 4px;
+    font-size: 16px;
+    line-height: 1.5;
+    border: 1px solid #ddd;
+    margin-left: 0; /* Ensure consistent left alignment */
+}
+
+textarea {
+    font-family: -apple-system, BlinkMacSystemFont, "San Francisco", "Segoe UI", sans-serif;
+    font-size: 16px;
+}
+
+#customCharLimit {
+    font-family: -apple-system, BlinkMacSystemFont, "San Francisco", "Segoe UI", sans-serif;
+    font-size: 14px;
+}
+
+.french-box {
+    background-color: #f1f1f1;
+}
+
+.english-box {
+    background-color: #f1f1f1;
+}
+
+button.copy-btn, button.paste-btn {
+    background-color: #4a90e2;
+    font-size: 14px;
+    padding: 5px;
+    margin-left: 0; /* Ensure consistent left alignment */
+}
+
+button.copy-btn:hover, button.paste-btn:hover {
+    background-color: #357ab7;
+}
+
+button.copy-btn:active, button.paste-btn:active {
+    transform: translateY(2px); /* Add the same click animation effect */
+}
+
+textarea#finalTranslation {
+    width: 100%; /* Extend to align with container */
+    height: 150px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+    line-height: 1.5;
+    resize: vertical;
+    background-color: #f1f1f1;
+    margin-left: 0; /* Ensure consistent left alignment */
+}
+
+/* Circular progress indicator styles */
+.progress-circle-container {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    visibility: hidden;
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.progress-circle {
+    position: relative;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background-color: #f1f1f1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    cursor: move;
+}
+
+.percentage {
+    position: absolute;
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+}
+
+/* Language Selection Dropdown and Flip Button Styles */
+.language-selection {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 15px;
+    margin-left: 0; /* Ensure alignment starts from container */
+}
+
+.language-selection select {
+    font-family: -apple-system, BlinkMacSystemFont, "San Francisco", "Segoe UI", sans-serif;
+    font-size: 14px;
+    font-weight: normal;
+    color: #333;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    line-height: 1.5;
+    background-color: #f1f1f1;
+    width: 48%;
+    cursor: pointer;
+    margin-left: 0; /* Ensure consistent left alignment */
+}
+
+.language-selection select:focus {
+    border-color: #4a90e2;
+    outline: none;
+    box-shadow: 0 0 5px rgba(74, 144, 226, 0.5);
+}
+
+#flipButton {
+    padding: 10px;
+    background-color: #4a90e2;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 16px;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s ease, background-color 0.3s ease; /* Smooth transition */
+}
+
+#flipButton:hover {
+    background-color: #357ab7;  /* Dark shade when hovering */
+    transform: translateY(0);   /* Ensure it does not move when hovered */
+}
+
+#flipButton:active {
+    transform: translateY(2px);  /* Move down when clicked */
+    background-color: #357ab7;  /* Keep the dark shade when clicked */
+}
+
+#flipButton span {
+    font-size: 20px;  /* Ensure the arrows are centered and visible */
+    line-height: 0;  /* Align the arrow exactly in the middle */
+}
+
+.combine-section {
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Space between buttons */
+    margin-top: 20px; /* Ensure some spacing at the top */
+}
+
+button {
+    padding: 10px;
+    background-color: #4a90e2; /* Primary button color */
+    color: white;              /* Text color */
+    border: none;              /* Remove default border */
+    border-radius: 4px;       /* Rounded corners */
+    cursor: pointer;           /* Pointer on hover */
+    font-size: 16px;           /* Font size */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Transition effects */
+    margin: 5px 0;            /* Space between buttons */
+    width: 100%;               /* Make buttons full width */
+}
+
+button:hover {
+    background-color: #357ab7; /* Darker shade on hover */
+}
+
+button:active {
+    transform: translateY(2px); /* Button press effect */
+}
+
+button.copy-btn, button.paste-btn {
+    background-color: #4a90e2;
+    font-size: 14px;
+    padding: 5px;
+    margin: 0; /* Remove margin for these buttons */
+}
+
+button.copy-btn {
+    margin-right: 5px; /* Add a right margin to push away from the Paste button */
+}
+
+button.paste-btn {
+    margin-left: 0; /* Ensure no left margin */
+}

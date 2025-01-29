@@ -1,0 +1,118 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Translation Assistant</title>
+
+    <!-- Linking to CSS and JS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='colorscopy.css') }}">
+<script src="{{ url_for('static', filename='backendcopy.js') }}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+</head>
+<body>
+    <div class="container">
+        <h1>Translation Assistant</h1>
+        
+        <!-- Language Selection Section -->
+        <div class="language-selection">
+            <select id="fromLanguage" aria-label="Select language to translate from">
+                <option value="ar">Arabic</option>
+                <option value="zh">Chinese</option>
+                <option value="cs">Czech</option>
+                <option value="da">Danish</option>
+                <option value="nl">Dutch</option>
+                <option value="en">English</option>
+                <option value="fr">French</option>
+                <option value="de">German</option>
+                <option value="el">Greek</option>
+                <option value="he">Hebrew</option>
+                <option value="hi">Hindi</option>
+                <option value="hu">Hungarian</option>
+                <option value="it">Italian</option>
+                <option value="ja">Japanese</option>
+                <option value="ko">Korean</option>
+                <option value="fa">Persian</option>
+                <option value="pl">Polish</option>
+                <option value="pt">Portuguese</option>
+                <option value="ro">Romanian</option>
+                <option value="ru">Russian</option>
+                <option value="sk">Slovak</option>
+                <option value="es">Spanish</option>
+                <option value="sv">Swedish</option>
+                <option value="th">Thai</option>
+                <option value="tr">Turkish</option>
+                <option value="uk">Ukrainian</option>
+            </select>
+            <!-- Button to switch languages -->
+            <button id="flipButton" onclick="flipLanguages()">⇄</button>
+            <select id="toLanguage" aria-label="Select language to translate to">
+                <option value="ar">Arabic</option>
+                <option value="zh">Chinese</option>
+                <option value="cs">Czech</option>
+                <option value="da">Danish</option>
+                <option value="nl">Dutch</option>
+                <option value="en">English</option>
+                <option value="fr">French</option>
+                <option value="de">German</option>
+                <option value="el">Greek</option>
+                <option value="he">Hebrew</option>
+                <option value="hi">Hindi</option>
+                <option value="hu">Hungarian</option>
+                <option value="it">Italian</option>
+                <option value="ja">Japanese</option>
+                <option value="ko">Korean</option>
+                <option value="fa">Persian</option>
+                <option value="pl">Polish</option>
+                <option value="pt">Portuguese</option>
+                <option value="ro">Romanian</option>
+                <option value="ru">Russian</option>
+                <option value="sk">Slovak</option>
+                <option value="es">Spanish</option>
+                <option value="sv">Swedish</option>
+                <option value="th">Thai</option>
+                <option value="tr">Turkish</option>
+                <option value="uk">Ukrainian</option>
+            </select>
+        </div>
+
+        <!-- French Text Input Section -->
+        <div class="input-section">
+            <textarea id="frenchText" placeholder="Enter text here..." maxlength="50000"></textarea>
+            <input type="number" id="customCharLimit" placeholder="Custom character limit (default: 2000)" min="1">
+            <button id="divideTextBtn" onclick="divideText()">Divide Text</button>
+            <p id="currentCharLimit">Current character limit: 2000</p>
+            <p id="frenchCharCount">Character count: 0</p>
+        </div>
+
+        <!-- Hide this section initially -->
+        <div id="hiddenSection" style="display: none;">
+            <!-- French Text and English Translation Section -->
+            <div class="translation-section" id="chunksContainer"></div>
+
+            <div class="combine-section">
+    <button id="combineBtn" onclick="combineTranslations()">Combine Translations</button>
+    <textarea id="finalTranslation" placeholder="Combined translation will appear here..." readonly></textarea>
+    <button id="copyCombinedBtn" onclick="copyCombinedTranslation()">Copy Combined Translation</button>
+    <button id="downloadPdfBtn">Download PDF</button> <!-- Ensure this is only here once -->
+    <button id="restartBtn" onclick="restart()">Restart</button>
+    <p id="englishCharCount">Character count: 0</p>
+</div>
+        </div>
+    </div>
+
+    <!-- Circular Progress Indicator -->
+    <div class="progress-circle-container" id="progressCircleContainer" style="visibility: hidden;">
+        <div class="progress-circle" id="progressCircle">
+            <div class="percentage" id="percentageText">0%</div>
+        </div>
+    </div>
+  
+
+</body>
+</html>
