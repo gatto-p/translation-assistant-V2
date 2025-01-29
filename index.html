@@ -1,7 +1,3 @@
-
-
-
-
 <!DOCTYPE html>
 <html lang="en-GB">
 <head>
@@ -11,9 +7,8 @@
 
     <!-- Linking to CSS and JS -->
     <link rel="stylesheet" href="static/colorscopy.css">
-<script src="static/backendcopy.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-
+    <script src="static/backendcopy.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js" defer></script>
 </head>
 <body>
     <div class="container">
@@ -49,7 +44,6 @@
                 <option value="tr">Turkish</option>
                 <option value="uk">Ukrainian</option>
             </select>
-            <!-- Button to switch languages -->
             <button id="flipButton" onclick="flipLanguages()">⇄</button>
             <select id="toLanguage" aria-label="Select language to translate to">
                 <option value="ar">Arabic</option>
@@ -92,17 +86,16 @@
 
         <!-- Hide this section initially -->
         <div id="hiddenSection" style="display: none;">
-            <!-- French Text and English Translation Section -->
             <div class="translation-section" id="chunksContainer"></div>
 
             <div class="combine-section">
-    <button id="combineBtn" onclick="combineTranslations()">Combine Translations</button>
-    <textarea id="finalTranslation" placeholder="Combined translation will appear here..." readonly></textarea>
-    <button id="copyCombinedBtn" onclick="copyCombinedTranslation()">Copy Combined Translation</button>
-    <button id="downloadPdfBtn">Download PDF</button> <!-- Ensure this is only here once -->
-    <button id="restartBtn" onclick="restart()">Restart</button>
-    <p id="englishCharCount">Character count: 0</p>
-</div>
+                <button id="combineBtn" onclick="combineTranslations()">Combine Translations</button>
+                <textarea id="finalTranslation" placeholder="Combined translation will appear here..." readonly></textarea>
+                <button id="copyCombinedBtn" onclick="copyCombinedTranslation()">Copy Combined Translation</button>
+                <button id="downloadPdfBtn">Download PDF</button>
+                <button id="restartBtn" onclick="restart()">Restart</button>
+                <p id="englishCharCount">Character count: 0</p>
+            </div>
         </div>
     </div>
 
@@ -112,7 +105,6 @@
             <div class="percentage" id="percentageText">0%</div>
         </div>
     </div>
-  
 
 </body>
 </html>
